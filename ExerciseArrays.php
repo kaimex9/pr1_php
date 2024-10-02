@@ -50,7 +50,20 @@ foreach ($array as $x) {
     $num--;
 }
 
-echo "<br><br>Un profesor quiere registrar las notas de su clase en un array asociaƟvo. Las notas sonlas siguientes:
+echo "<br><br>6. Un profesor quiere registrar las notas de su clase en un array asociativo. Las notas son las siguientes:
 Miguel: 5, Luís: 7, Marta: 10, Isabel: 8, Aitor: 4, Pepe: 1
-Guarda los datos en un array asociaƟvo en el orden previo y muéstralos ordenados demayor a menor.<br><br>";
+Guarda los datos en un array asociativo en el orden previo y muéstralos ordenados de mayor a menor.<br><br>";
 
+$notas=array(
+    "Miguel" => 5,
+    "Luis" => 7,
+    "Marta" => 10,
+    "Isabel" => 8,
+    "Aitor" => 4,
+    "Pepe" => 1,
+);
+$ej6= arsort($notas);
+
+foreach ($notas as $x => $val) {
+    echo "$x: $val<br>";
+};
