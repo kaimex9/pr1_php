@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION['array'])) {
     $_SESSION['array'] = array(1, 2, 3);
 }
@@ -11,13 +12,9 @@ if (!isset($_SESSION['array'])) {
         <label>
             Position to modify:
             <select name="position">
-                <?php
-                foreach ($_SESSION['array'] as $x) {
-                    echo "<option>
-                            $x
-                        </option>";
-                }
-                ?>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
             </select>
         </label><br><br>
         <label>
@@ -28,7 +25,24 @@ if (!isset($_SESSION['array'])) {
         <input type="reset" value="Reset">
     </form>
     <?php
+    if (isset($_POST['modify'])) {
+        if ($_POST['num'] == null) {
+            echo "Porfavor, introduce un nuevo valor";
+        } else {
+            $position = (int) $_POST['position'] - 1;
+            $_SESSION['array'][$position] = (int) $_POST['num'];
+
+            echo "Current Array: | ";
+            foreach ($_SESSION['array'] as $x) {
+                echo "$x | ";
+            }
+        }
+    } else if ($_POST['average']) {
         
+    }{
+
+    }
     ?>
 </body>
+
 </html>
