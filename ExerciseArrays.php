@@ -30,7 +30,27 @@ foreach ($ej1 as $x => $value) {
     echo "$x: $value<br>";
 }
 
-echo "<br><br>4. Modifica la edad del primer array a 24. Vuelve a mostrar toda su informacion<br><br>";
+echo "<br><br>4. Borra la ciudad del array y vuelve a mostrar toda su información usando la función var_dump. <br><br>";
 
 $ej1["ciudad"] = null;
 var_dump($ej1);
+
+echo "<br><br>5. Crear un nuevo array con un valor separado por coma a partir de la cadena de texto 
+$ letters = “a,b,c,d,e,f”. Usando la función explode. Muestra su información en orden descendente<br><br>";
+
+$letters = "a,b,c,d,e,f";
+
+$array = explode(",", $letters);
+
+rsort($array);
+
+$num = 6;
+foreach ($array as $x) {
+    echo "Letter $num: $x<br>";
+    $num--;
+}
+
+echo "<br><br>Un profesor quiere registrar las notas de su clase en un array asociaƟvo. Las notas sonlas siguientes:
+Miguel: 5, Luís: 7, Marta: 10, Isabel: 8, Aitor: 4, Pepe: 1
+Guarda los datos en un array asociaƟvo en el orden previo y muéstralos ordenados demayor a menor.<br><br>";
+
