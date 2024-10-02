@@ -62,8 +62,35 @@ $notas=array(
     "Aitor" => 4,
     "Pepe" => 1,
 );
-$ej6= arsort($notas);
+arsort($notas);
 
 foreach ($notas as $x => $val) {
     echo "$x: $val<br>";
 };
+
+echo "<br><br>7. Calcula la media de las notas y muéstrala con solo 2 decimales. Además, muestra los
+nombres de los alumnos cuya nota esté por encima de la media. <br><br>";
+
+$suma = array_sum($notas);
+$media = $suma / count($notas);
+$mediaF = number_format($media,2);
+echo "Las media de las notas es de $mediaF<br>";
+echo "Alumnos con nota por encima de la media:<br><br>";
+foreach ($notas as $x => $val) {
+    if ($val > $mediaF) {
+        echo "$x: $val<br>";
+    }
+}
+
+echo "<br><br>8. Busca en el array la nota más alta (debe hacerse mediante código). Muestra la nota y
+el nombre del mejor alumno de la clase. Deberá funcionar para cualquier valor del array.<br><br>";
+
+$Mnota = 0;
+$nombre = "unknown";
+foreach ($notas as $x => $val) {
+    if ($val>$Mnota) {
+        $Mnota=$val;
+        $nombre=$x;
+    }
+}
+echo "La nota mas alta es la de $nombre: $Mnota";
