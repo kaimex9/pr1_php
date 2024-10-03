@@ -43,7 +43,7 @@
     } elseif (isset($_POST["remove"])) {                     //Funcion de lo que ocurre al pulsar el boton "remove"
         if ($_POST["name"] == null && $_POST["amount"] == null) {   //Si alguna de las casillas esta vacia saltara este error
             echo "ERROR: No puedes dejar casillas en blanco";
-        } elseif (($_SESSION['SD'] - (int) $_POST["amount"]) < 0) { //Y si el stock del producto fuese a quedar por debajo de 0 se ejecutaria este error y no se aplicaria la resta
+        } elseif (($_SESSION['SD'] - (int) $_POST["amount"]) < 0 && ($_SESSION['M'] - (int) $_POST["amount"]) < 0) { //Y si el stock del producto fuese a quedar por debajo de 0 se ejecutaria este error y no se aplicaria la resta
             echo "ERROR: El Stock de un producto no puede ser menor que 0";
         } else {
             echo 'Worker: ' . $_POST["name"] . '<br>';
@@ -60,5 +60,4 @@
     }
     ?>
 </body>
-
 </html>
