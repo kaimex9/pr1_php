@@ -25,6 +25,12 @@ if (!isset($_SESSION['array'])) {
         <input type="reset" value="Reset">
     </form>
     <?php
+    if (!isset($_POST['modify'])) {
+        echo "Current Array: | ";
+        foreach ($_SESSION['array'] as $x) {
+            echo "$x | ";
+        }
+    }
     if (isset($_POST['modify'])) {
         if ($_POST['num'] == null) {
             echo "Porfavor, introduce un nuevo valor";
@@ -37,9 +43,7 @@ if (!isset($_SESSION['array'])) {
                 echo "$x | ";
             }
         }
-    } else if ($_POST['average']) {
-        
-    }{
+    } else if (isset($_POST['average'])) {
 
     }
     ?>
