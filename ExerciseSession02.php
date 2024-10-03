@@ -37,14 +37,19 @@ if (!isset($_SESSION['array'])) {
         } else {
             $position = (int) $_POST['position'] - 1;
             $_SESSION['array'][$position] = (int) $_POST['num'];
-
             echo "Current Array: | ";
             foreach ($_SESSION['array'] as $x) {
                 echo "$x | ";
             }
         }
     } else if (isset($_POST['average'])) {
-
+        //dividir la suma de todos los valores
+        $suma = 0;
+        foreach ($_SESSION['array'] as $x) {
+            $suma += $x;
+        }
+        $media = $suma/3;
+        echo "<br><br>Average: ".ROUND($media);
     }
     ?>
 </body>
